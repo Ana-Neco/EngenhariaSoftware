@@ -13,18 +13,7 @@
             let text = document.getElementById("texto").value;
             vetor.push(text);
             //ordena em ordem alfabetica
-            let len = vetor.length;
-            for (let i = 0; i < len; i++) {
-                for (let j = 0; j < len - i - 1; j++) {
-                    if (vetor[j] > vetor[j + 1]) {
-                        // troca os elementos
-                        let temp = vetor[j];
-                        vetor[j] = vetor[j + 1];
-                        vetor[j + 1] = temp;
-                    }
-                }
-            }
-
+            vetor.sort();
             console.log(vetor);
 
             //A lista ordenada no HTML é obtida e seu conteúdo interno é limpo. Isso é feito para que a lista possa ser preenchida com os valores atualizados do array.

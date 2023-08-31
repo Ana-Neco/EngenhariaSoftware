@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body
+        {
+            display: flex;
+            min-height: 100vh;
+            background: #2f363e;
+        }
+        a
+        {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            margin: 50px;
+        }
+        #time
+        {
+            display: flex;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            gap: 40px;
+            color: white;
+
+        }
+        #time .circle
+        {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #time .circle svg
+        {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            transform: rotate(270deg);
+        }
+        #time .circle svg circle
+        {
+            width: 100%;
+            height: 100%;
+            fill: transparent;
+            stroke: black;
+            stroke-width: 4;
+            transform: translate(5px,5px);
+        }
+        #time .circle svg circle:nth-child(2)
+        {
+            stroke: var(--cor);
+            stroke-dasharray: 440;
+        }
+        #time div
+        {
+            position: absolute;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1.5em;
+        }
+        #time div span
+        {
+            position: absolute;
+            transform: translateX(-50%) translateY(-5px);
+            font-size: 0.35em;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        #time .ap
+        {
+            position: relative;
+            font-size: 1em;
+            transform: translateX(-20px);
+        }
+        .dots
+        {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .dots::before
+        {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: var(--cor);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--cor),
+            0 0 60px var(--cor);
+        }
+
+    </style>
+    
+</head>
+<body>
+    <a href="semana3.html">voltar</a>
+    <div id="time">
+        <div class="circle" style="--cor:#ff2972;">
+            
+            <!-- SVG é o elemento raiz para criar gráficos vetoriais escaláveis. o circle elemento é usado para criar círculos dentro do SVG. Os atributos cx e cy definem as coordenadas do centro do círculo no espaço de trabalho SVG, e o atributo r define o raio do círculo. -->
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="hh"></circle>
+                <div class="dots hr_dot"></div>
+            </svg>
+            <div id="hours">00</div>
+        </div>
+        <div class="circle" style="--cor:#fee800;">
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="mm"></circle>
+                <div class="dots min_dot"></div>
+            </svg>
+            <div id="minutes">00</div>
+        </div>
+        <div class="circle" style="--cor:#04fc43;">
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="ss"></circle>
+                <div class="dots sec_dot"></div>
+            </svg>
+            <div id="seconds">00</div>
+        </div>
+    </div>
+
+    <script>
+
+        function time() 
+        {
+            let hours = document.getElementById('hours');
+            let minutes = document.getElementById('minutes');
+            let seconds = document.getElementById('seconds');
+
+            let hh = document.getElementById('hh');
+            let mm = document.getElementById('mm');
+            let ss = document.getElementById('ss');
+
+            let hr_dot = document.querySelector('.hr_dot');
+            let min_dot = document.querySelector('.min_dot');
+            let sec_dot = document.querySelector('.sec_dot');
+
+            let d = new Date();
+            let s = d.getSeconds();
+            let m = d.getMinutes();
+            let h = d.getHours();            
+
+            hours.innerHTML = h + "<br><span>Horas</span>";
+            minutes.innerHTML = m + "<br><span>Minutos</span>";
+            seconds.innerHTML = s + "<br><span>Segundos</span>";
+
+            hh.style.strokeDashoffset = 440 - (440 * h) / 24;
+            // 24 hrs clock
+            mm.style.strokeDashoffset = 440 - (440 * m) / 60;
+            // 60 minutos
+            ss.style.strokeDashoffset = 440 - (440 * s) / 60;
+            //60 segundos
+
+            hr_dot.style.transform = `rotate(${h * 15}deg)`;
+            // 360 / 24 = 15
+            min_dot.style.transform = `rotate(${m * 6}deg)`;
+            // 360 / 60 = 6
+            sec_dot.style.transform = `rotate(${s * 6}deg)`;
+            
+
+        }
+        setInterval(time, 1000);
+    </script>
+    
+</body>
+</html>

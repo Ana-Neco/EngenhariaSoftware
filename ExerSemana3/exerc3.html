@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromo</title>
+</head>
+<body>
+    <a href="semana3.html">voltar</a>
+    <br>
+    <label for="text-input">Digite uma palavra ou frase:</label>
+    <input type="text" id="myInput">
+    <button onclick="checkPalindrome()">Verificar</button>
+    <script>
+
+        function checkPalindrome() 
+        {
+            var str = document.getElementById("myInput").value;
+            var re = /[\W_]/g;
+            var lowRegStr = str.toLowerCase().replace(re, '');
+            var reverseStr = lowRegStr.split('').reverse().join(''); 
+            if(reverseStr === lowRegStr){
+                alert(str + " é um palíndromo");
+            } else {
+                alert(str + " não é um palíndromo");
+            }
+        }
+    </script>
+    
+</body>
+</html>
