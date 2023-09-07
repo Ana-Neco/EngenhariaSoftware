@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Formulario do Carro</title>
+</head>
+<body>
+    <div class="login-box">
+        <form id="cadastroForm">
+            <a href="semana4.html">voltar</a>
+            <h1>Formulário de Carro</h1>
+            <div class="user-box">
+
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" required><br>
+
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" required><br>
+
+                <div class="container-dois">
+                    <div class="user-box">
+                        <label for="ano">Ano:</label>
+                        <input type="number" id="ano" required><br>
+                    </div>
+                    <div class="user-box">
+                        <label for="cor">Cor:</label>
+                        <input type="text" id="cor" required><br>
+                    </div>
+                </div>
+
+                <label for="kilometragem">Kilometragem:</label>
+                <input type="number" id="kilometragem" required><br>
+
+                <label for="valor_fipe">Valor FIPE:</label>
+                <input type="number" id="valor_fipe" required><br>
+            </div>
+            <div class="button">
+                <input type="submit" class="btn" id="btnEnviar" value="Calcular">
+                <input type="reset" class="btn" id="btnRedefinir" value="Redefinir">
+            </div>
+            <br>
+        </form>
+        <div id="resultado"></div>
+    </div>
+
+    <script src="carros.js"></script>
+    
+</body>
+</html>

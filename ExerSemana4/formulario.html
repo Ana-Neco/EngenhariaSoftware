@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="divisao">
+        <div class="login-box">
+            <form id="cadastroForm">
+                <a href="semana4.html">voltar</a>
+                <h1>Formulário de Cadastro</h1>
+                <div class="user-box">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome">
+                </div>
+                <div class="container-dois">
+                    <div class="user-box">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="nascimento">
+                        <label for="data">Data Nascimento</label>
+                        <input type="date" id="data" name="dataNascimento" >
+                    </div>
+                </div>
+                <div class="container-dois">
+                    <div class="user-box">
+                        <label for="telfixo">Telefone Fixo</label>
+                        <input type="tel" id="telfixo" name="telFixo" >
+                    </div>
+                    <div class="user-box taman">
+                        <label for="telcel">Telefone Celular</label>
+                        <input type="tel" id="telcel" name="telCel" >
+                    </div>
+                </div>
+                <div class="radio">
+                    <input type="radio" name="tipo" id="professor" value="professor">
+                    <label for="professor">Professor</label>
+                    
+                    <input type="radio" name="tipo" id="aluno" value="aluno">
+                    <label for="aluno">Aluno</label>
+                </div>
+                <br>
+
+                <div class="user-box" id="camposProfessor" style="display: none;">
+                    <label>Área:</label>
+                    <input type="text" name="area"><br>
+                    <label>Matrícula:</label>
+                    <input type="text" name="matricula"><br>
+                    <label>Lattes:</label>
+                    <input type="text" name="lattes"><br>
+                </div>
+        
+                <div class="user-box" id="camposAluno" style="display: none;">
+                    <label>Curso:</label>
+                    <input type="text" name="curso"><br>
+                    <label>Matrícula:</label>
+                    <input type="text" name="matriculaAluno"><br>
+                </div>
+                <div id="formulario" class="conteudo"></div>
+                <br>
+                <div class="button">
+                    <input type="submit" class="btn" id="btnEnviar" value="Enviar">
+                    <input type="reset" class="btn" id="btnRedefinir" value="Redefinir">
+                </div>
+            </form>
+        </div>
+        <div class="resultado">
+            <h3>Resultado</h3>
+            <p id="tipoDado"></p>
+            <pre id="resultado"></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>
