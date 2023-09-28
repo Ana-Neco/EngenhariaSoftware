@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letreiro</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+
+        function Letreiro() {
+            const intervaloDeTempo = 200;
+            const texto = 'Venha estudar na Fatec';
+
+            let index = 0;
+            let exibicao = '';
+
+            function mostrarLetra() {
+                exibicao += texto.charAt(index);
+                index++;
+                root.render(<div>{exibicao}</div>);
+
+                if (index === texto.length) {
+                    setTimeout(reiniciarLetreiro, intervaloDeTempo * 3); // Espera 3 vezes o intervalo para reiniciar
+                } else {
+                    setTimeout(mostrarLetra, intervaloDeTempo);
+                }
+            }
+
+            function reiniciarLetreiro() {
+                exibicao = '';
+                index = 0;
+                root.render(<div>{exibicao}</div>);
+                setTimeout(mostrarLetra, intervaloDeTempo);
+            }
+
+            mostrarLetra();
+        }
+
+        Letreiro();
+
+        
+    </script>
+
+</body>
+</html>

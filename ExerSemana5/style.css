@@ -1,0 +1,10 @@
+#root
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
